@@ -1,4 +1,4 @@
-#!/opt/anaconda3/bin/python3
+#!python
 """
 beatbox - main aplication
 

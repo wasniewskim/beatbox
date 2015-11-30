@@ -13,12 +13,17 @@ import zipfile
 import create_track as ct
 
 def create_song(song):
+    """
+    create track 
+    Arguments:
+        * song - dictionary or .zip file with song definition 
+    """
 
     if os.path.exists(song):
         song_path = song + "/"
     elif zipfile.is_zipfile(song + ".zip"):
         song_zip = zipfile.ZipFile(song + '.zip')
-        song_zip.extractall("temp")
+        song_zip.extractall("/tmp/")
         song_path = "/tmp/" + song + "/"
     else:
         return "There's no such song definition"

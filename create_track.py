@@ -7,7 +7,12 @@ import numpy as np
 
 def create_track(track, defs, samples_dict, inst):
     """
-    
+    create track 
+    Arguments:
+        * track - file with track 
+        * defs - beats per minute
+        * samples_dict - dictionary with sample definition
+        * inst - dictionary with instrument definition
     """
     f = open(track, 'r')
     track_matrix = np.array([line.split() for line in f])
