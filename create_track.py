@@ -26,10 +26,14 @@ def create_track(track, defs, samples_dict, inst):
                     n_s = samples_dict[temp][1]
                     if (n + n_s > len(z)):
                         n_s = m - n
-                    z[n:(n + n_s)] += 0.1 * samples_dict[temp][0][:n_s]
+                    z[n:(n + n_s)] += 0.25 * samples_dict[temp][0][:n_s]
             elif len(temp) == 3:
                 n_s = fs*t1
                 if  temp != "---":
-                    z[n:(n + n_s)] += np.sin(2*np.pi*inst[temp[0:2]]*2**(int(temp[2])-4)*t)
+       		        x = np.sin(2*np.pi*inst[temp[0:2]]*2**(int(temp[2])-4)*t)
+       		        m = np.floor(len(x)*0.05)
+       		        l2 = np.linspace(1,0, m)
+       		        x[(len(x)-m):] = x[(len(x)-m):]*l2
+       		        z[n:(n + n_s)] += 0.25 * x
         n += fs*60/defs['bpm']
     return z

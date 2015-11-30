@@ -14,9 +14,15 @@ import create_track as ct
 
 def create_song(song):
 
+    if os.path.exists(song):
+        song_path = song + "/"
+    elif zipfile.is_zipfile(song + ".zip"):
+        song_zip = zipfile.ZipFile(song + '.zip')
+        song_zip.extractall("temp")
+        song_path = "/tmp/" + song + "/"
+    else:
+        return "There's no such song definition"
 
-		
-    song_path = song 
     defs = open(song_path + 'defs.txt', 'r').read()
     defs = eval(defs)
     
@@ -24,7 +30,8 @@ def create_song(song):
     samples_dict = {}
     for si in sample:
         x = scipy.io.wavfile.read(song_path+si)[1]
-        x = np.mean(x,axis=1)
+        if len(np.shape(x)) > 1:
+            x = np.mean(x,axis=1)
         samples_dict[si[6:8]] = x/max(np.abs(x)), np.shape(x)[0]
     
 

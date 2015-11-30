@@ -1,12 +1,21 @@
+#!/opt/anaconda3/bin/python3
 """
+beatbox - main aplication
 
+create .wav file 
 """
-
+import create_song
+import sys
 import warnings
 warnings.filterwarnings("ignore")
 
-import create_song
-if __name__=='__main__':
-    import sys
-    print(sys.argv[1])
-    create_song.create_song(sys.argv[1])
+song = sys.argv[1]
+if song[-1:] == '/':
+    song = song[:-1]
+
+
+x  = create_song.create_song(song)
+if (x == None):
+	print(song + ".wav")
+else: 
+	print(x)
