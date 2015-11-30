@@ -12,7 +12,7 @@ Ponadto każdy z folderów z piosenkami składa się z:
   * `song.txt` - plik tekstowy określający kolejność odgrywanych ścieżek,
   * `trackAB.txt` - pliki tekstowe określające kolejność odgrywania sampli, nutek, gdzie AB to 2 cyfry; jeden wiersz jest odtwarzany na raz. Przykłady zapisu:
      * `01` - odwołanie do sampla `01`,
-     * `A-4` - odwołanie do nutki o częstotliwości `A-4`,
+     * `A-4` - odwołanie do nutki `A` o częstotliwości `440 Hz`,
   * `sampleXY.wav` - pliki dźwiękowe, gdzie XY to 2 cyfry,
 
 

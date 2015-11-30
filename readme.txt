@@ -12,8 +12,8 @@ Ponadto każdy z folderów z piosenkami składa się z:
   * `song.txt` - plik tekstowy określający kolejność odgrywanych ścieżek,
   * `trackAB.txt` - pliki tekstowe określające kolejność odgrywania sampli, nutek, gdzie AB to 2 cyfry; jeden wiersz jest odtwarzany na raz. Przykłady zapisu:
      * `01` - odwołanie do sampla `01`,
-     * `A-4` - odwołanie do nutki o częstotliwości `A-4`,
-  * `sampleXY.wav` - pliki dźwiękowe, gdzie XY oznacza 2 cyfry (identyfikator pliku),
+     * `A-4` - odwołanie do nutki `A` o częstotliwości `440 Hz`,
+  * `sampleXY.wav` - pliki dźwiękowe, gdzie XY to 2 cyfry,
 
 
 Działanie programu
@@ -24,12 +24,9 @@ Program uruchamia się z folderu z programem (katalog bieżący) przy użyciu ko
 ```
 ./beatbox.py songX
 ```
-
-lub
- 
+lub 
 ```
 ./beatbox.py songX/
 ```
-
 gdzie `songX` to nazwa katalogu z piosenką lub nazwa pliku w formacie `*.zip`.
 Piosenka zostanie utworzona w katalogu bierzącym. 
